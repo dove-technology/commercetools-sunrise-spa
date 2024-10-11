@@ -146,9 +146,12 @@ export const addDovetechCouponCode = (code) => {
 export const addDiscountCode = (code) => [
   { addDiscountCode: { code } },
 ];
-export const removeDiscountCode = (id, codes) => {
-  const updatedCodes = codes.filter(
-    (code) => code.code !== id
+export const removeDiscountCode = (
+  couponCode,
+  allCouponCodes
+) => {
+  const updatedCodes = allCouponCodes.filter(
+    (code) => code.code !== couponCode
   );
 
   let serialisedValue = JSON.stringify(updatedCodes);
