@@ -1,5 +1,6 @@
 import { useI18n } from 'vue-i18n';
 import RemoveDiscountCodeForm from './RemoveDiscountCodeForm/RemoveDiscountCodeForm.vue';
+import useCartTools from 'hooks/useCartTools';
 
 export default {
   components: { RemoveDiscountCodeForm },
@@ -15,6 +16,9 @@ export default {
   },
   setup() {
     const { t } = useI18n();
-    return { t };
+
+    const { couponCodes } = useCartTools();
+
+    return { t, couponCodes };
   },
 };

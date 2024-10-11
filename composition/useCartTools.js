@@ -94,8 +94,27 @@ const taxes = (cart) => {
   }
   return null;
 };
+
+const couponCodes = (cart) => {
+  if (!cart.custom?.customFieldsRaw.length) {
+    return [];
+  }
+
+  const couponCodeField = cart.custom.customFieldsRaw
+    .filter(
+      (field) => field.name === 'dovetech-couponCodes'
+    )
+    .reduce((customField) => customField);
+
+  if (!couponCodeField) {
+    return [];
+  }
+
+  return JSON.parse(couponCodeField.value);
+};
+
 const discountCodesExist = (cart) => {
-  return Boolean(cart.discountCodes?.length);
+  return Boolean(couponCodes(cart).length);
 };
 
 function useCartTools() {
@@ -110,6 +129,7 @@ function useCartTools() {
     subTotal,
     taxes,
     discountCodesExist,
+    couponCodes,
     useCart,
   };
   return cartTools;

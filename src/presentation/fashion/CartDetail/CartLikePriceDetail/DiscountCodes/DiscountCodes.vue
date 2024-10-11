@@ -12,19 +12,17 @@
       data-test="discount-code-name"
     >
       <div
-        v-for="discountInfo in cart.discountCodes"
-        :key="discountInfo.discountCode.codeId"
+        v-for="coupon in couponCodes(cart)"
+        :key="coupon.code"
       >
         <b>
-          {{ discountInfo.discountCode.code }}
+          {{ coupon.code }}
         </b>
-        <span v-if="discountInfo.discountCode.name">
-          ({{ discountInfo.discountCode.name }})</span
-        >
+        
         <span>
           <RemoveDiscountCodeForm
             v-if="editable"
-            :codeId="discountInfo.discountCode.codeId"
+            :codeId="coupon.code"
           />
         </span>
       </div>
