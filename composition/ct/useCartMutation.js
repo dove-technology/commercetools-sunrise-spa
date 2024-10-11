@@ -146,13 +146,30 @@ export const addDovetechCouponCode = (code) => {
 export const addDiscountCode = (code) => [
   { addDiscountCode: { code } },
 ];
-export const removeDiscountCode = (id) => [
-  {
-    removeDiscountCode: {
-      discountCode: { id, typeId: 'discount-code' },
+export const removeDiscountCode = (id, codes) => {
+  const updatedCodes = codes.filter(
+    (code) => code.code !== id
+  );
+
+  let serialisedValue = JSON.stringify(updatedCodes);
+
+  return [
+    {
+      setCustomType: {
+        type: {
+          key: 'dovetech-cartMetadata',
+          typeId: 'type',
+        },
+        fields: [
+          {
+            name: 'dovetech-couponCodes',
+            value: JSON.stringify(serialisedValue),
+          },
+        ],
+      },
     },
-  },
-];
+  ];
+};
 export const setShippingMethod = (shippingMethodId) => [
   {
     setShippingMethod: {

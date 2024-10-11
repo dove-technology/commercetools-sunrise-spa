@@ -69,8 +69,8 @@ export const useCartActions = () => {
     );
   const applyDiscount = (code) =>
     mutateCart(addDovetechCouponCode(code));
-  const removeDiscount = (codeId) =>
-    mutateCart(removeDiscountCode(codeId));
+  const removeDiscount = (codeId, codes) =>
+    mutateCart(removeDiscountCode(codeId, codes));
   const setShip = (shippingMethodId) =>
     mutateCart(setShippingMethod(shippingMethodId));
 

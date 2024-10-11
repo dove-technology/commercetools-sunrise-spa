@@ -7,10 +7,15 @@ export default {
       type: String,
       required: true,
     },
+    codes: {
+      type: Array,
+      required: true,
+    },
   },
   setup(props) {
     const { removeDiscount: rd } = useCartTools();
-    const removeDiscount = () => rd(props.codeId);
+    const removeDiscount = () =>
+      rd(props.codeId, props.codes);
     return { removeDiscount };
   },
 };

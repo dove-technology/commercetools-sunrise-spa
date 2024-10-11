@@ -23,6 +23,7 @@
           <RemoveDiscountCodeForm
             v-if="editable"
             :codeId="coupon.code"
+            :codes="couponCodes(cart)"
           />
         </span>
       </div>
