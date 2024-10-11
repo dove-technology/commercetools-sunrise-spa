@@ -17,8 +17,8 @@ export default {
     const { applyDiscount: ad } = useCartTools();
     const { form, v } = useDiscountCode();
     const applyDiscount = () => ad(form.value.code);
-    const getErrorMessage = ({ code }) => {
-      if (code === 'DiscountCodeNonApplicable') {
+    const getErrorMessage = (error) => {
+      if (error?.extensions?.code === 'InvalidInput') {
         return t('nonApplicable');
       }
       return t('unknownError');

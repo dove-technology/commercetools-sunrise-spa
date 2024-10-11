@@ -121,6 +121,28 @@ export const removeLineItem = (lineItemId) => [
     removeLineItem: { lineItemId },
   },
 ];
+export const addDovetechCouponCode = (code) => {
+  let serialisedValue = JSON.stringify({
+    type: 'addCouponCode',
+    code,
+  });
+  return [
+    {
+      setCustomType: {
+        type: {
+          key: 'dovetech-cartMetadata',
+          typeId: 'type',
+        },
+        fields: [
+          {
+            name: 'dovetech-cartAction',
+            value: JSON.stringify(serialisedValue),
+          },
+        ],
+      },
+    },
+  ];
+};
 export const addDiscountCode = (code) => [
   { addDiscountCode: { code } },
 ];

@@ -5,12 +5,12 @@ import {
   addLineItem,
   changeCartLineItemQuantity,
   removeLineItem,
-  addDiscountCode,
   removeDiscountCode,
   setShippingMethod,
   setBillingAddress,
   setShippingAddress,
   createMyOrderFromCart,
+  addDovetechCouponCode,
 } from './ct/useCartMutation';
 import useSelectedChannel from './useSelectedChannel';
 import { getValue } from '../src/lib';
@@ -19,7 +19,6 @@ export {
   addLineItem,
   changeCartLineItemQuantity,
   removeLineItem,
-  addDiscountCode,
   removeDiscountCode,
   setShippingMethod,
   setBillingAddress,
@@ -69,7 +68,7 @@ export const useCartActions = () => {
       addLineItem(sku, quantity, channel.value?.id)
     );
   const applyDiscount = (code) =>
-    mutateCart(addDiscountCode(code));
+    mutateCart(addDovetechCouponCode(code));
   const removeDiscount = (codeId) =>
     mutateCart(removeDiscountCode(codeId));
   const setShip = (shippingMethodId) =>
