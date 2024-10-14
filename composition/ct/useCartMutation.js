@@ -3,6 +3,8 @@ import { getValue } from '../../src/lib';
 import useMutation from '../useMutationFacade';
 import useCart from '../useCart';
 import gql from 'graphql-tag';
+import { CART_METADATA } from '../../src/constants';
+
 export const createPayment = ({
   currency,
   centAmount,
@@ -130,12 +132,12 @@ export const addDovetechCouponCode = (code) => {
     {
       setCustomType: {
         type: {
-          key: 'dovetech-cartMetadata',
+          key: CART_METADATA.CART_METADATA_KEY,
           typeId: 'type',
         },
         fields: [
           {
-            name: 'dovetech-cartAction',
+            name: CART_METADATA.CART_ACTION,
             value: JSON.stringify(serialisedValue),
           },
         ],
@@ -160,12 +162,12 @@ export const removeDiscountCode = (
     {
       setCustomType: {
         type: {
-          key: 'dovetech-cartMetadata',
+          key: CART_METADATA.CART_METADATA_KEY,
           typeId: 'type',
         },
         fields: [
           {
-            name: 'dovetech-couponCodes',
+            name: CART_METADATA.COUPON_CODES,
             value: JSON.stringify(serialisedValue),
           },
         ],

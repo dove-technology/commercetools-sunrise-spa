@@ -1,6 +1,7 @@
 import { useCartActions } from 'hooks/useCartMutation';
 import config from '../sunrise.config';
 import useCart from './useCart';
+import { CART_METADATA } from '../src/constants';
 
 function subTotal(cartLike) {
   const { currencyCode, fractionDigits } =
@@ -102,7 +103,7 @@ const couponCodes = (cart) => {
 
   const couponCodeField = cart.custom.customFieldsRaw
     .filter(
-      (field) => field.name === 'dovetech-couponCodes'
+      (field) => field.name === CART_METADATA.COUPON_CODES
     )
     .reduce((customField) => customField);
 

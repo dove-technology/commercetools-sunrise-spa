@@ -8,3 +8,9 @@ export const DEFAULT_PAGE_SIZE = Number(
 );
 export const CUSTOMER = 'CUSTOMER';
 export const CHANNEL = 'CHANNEL';
+
+export const CART_METADATA = {
+  CART_METADATA_KEY: 'dovetech-cartMetadata',
+  COUPON_CODES: 'dovetech-couponCodes',
+  CART_ACTION: 'dovetech-cartAction',
+};
