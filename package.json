@@ -10,7 +10,7 @@
     "test:debug": "node --inspect-brk node_modules/.bin/vue-cli-service test:unit --no-cache --watch --runInBand",
     "lint": "vue-cli-service lint",
     "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
-    "start": "vue-cli-service serve"
+    "start": "vue-cli-service serve --port 8090"
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",
